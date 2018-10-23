@@ -1,20 +1,23 @@
 <% provide(:title, 'Signup') %>
 <div class="row">
-  <div class="">
-<%= form_for(@user) do |f| %>
-  <%= f.label :name, "ユーザーネーム" %>
-  <%= f.text_field :name, class: "form_control" %>
+  <div class="col-md-4 col-md-offset-4">
+    <%= form_for(@user) do |f| %>
+                <!--newアクションの@userからきてる-->
+      <%= render 'shared/error_messages' %>
+    
+      <%= f.label :name, "ユーザーネーム" %>
+      <%= f.text_field :name, class: "form_control" %>
   
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.email_field :email, class: "form_control"%>
   
-  <%= f.label :email, "メールアドレス" %>
-  <%= f.email_field :email, class: "form_control"%>
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, class: "form_control" %>
   
-  <%= f.label :password, "パスワード" %>
-  <%= f.password_field :password, class: "form_control" %>
+      <%= f.label :password_confirmation, "パスワード確認" %>
+      <%= f.password_field :password_confirmation, class: "form_control" %>
   
-  <%= f.label :password_confirmation, "パスワード確認" %>
-  <%= f.password_field :password_confirmation, class: "form_control" %>
-  
-  <%= f.submit "アカウント作成", class: "btn btn-primary" %>
-
-<% end %>
+      <%= f.submit "アカウント作成", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
